@@ -1,0 +1,102 @@
+@import url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
+@font-face {
+  font-family: "Poetsen";
+  src: url("../public/assets/fontes/PoetsenOne-Regular.ttf") format("truetype"); /* Substitua o caminho pelo local onde o arquivo de fonte está armazenado. */
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: url("../public/assets/Background3-min.jpg") no-repeat center
+    center fixed;
+  background-size: cover;
+}
+
+/* Estilos personalizados para os checkboxes no modal */
+.checkbox-modal input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkbox-modal .container {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  font-size: 1.5rem;
+  user-select: none;
+}
+
+.checkbox-modal .checkmark {
+  --clr: #0b6e4f;
+  position: relative;
+  top: 0;
+  left: 0;
+  height: 1.3em;
+  width: 1.3em;
+  background-color: #ccc;
+  border-radius: 50%;
+  transition: 300ms;
+}
+
+.checkbox-modal input:checked ~ .checkmark {
+  background-color: var(--clr);
+  border-radius: 0.5rem;
+  animation: pulse 500ms ease-in-out;
+}
+
+.checkbox-modal .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.checkbox-modal input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.checkbox-modal .checkmark:after {
+  left: 0.45em;
+  top: 0.25em;
+  width: 0.25em;
+  height: 0.5em;
+  border: solid #e0e0e2;
+  border-width: 0 0.15em 0.15em 0;
+  transform: rotate(45deg);
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 #0b6e4f90;
+    rotate: 20deg;
+  }
+  50% {
+    rotate: -20deg;
+  }
+  75% {
+    box-shadow: 0 0 0 10px #0b6e4f60;
+  }
+  100% {
+    box-shadow: 0 0 0 13px #0b6e4f30;
+    rotate: 0;
+  }
+}
+
+.checkbox-group {
+  display: flex;
+  margin: 20px 0;
+  text-align: center;
+}
+
+.checkbox-modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
